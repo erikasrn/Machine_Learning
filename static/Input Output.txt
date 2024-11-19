@@ -1,0 +1,116 @@
+Input:
+
+{
+    "points": [
+        {"name": "Gedung Sate", "coordinates": [-6.9025, 107.6186], "opening_hours": "08:00", "closing_hours": "16:00", "duration": 2},
+        {"name": "Trans Studio Bandung", "coordinates": [-6.9265, 107.6347], "opening_hours": "10:00", "closing_hours": "21:00", "duration": 4},
+        {"name": "Kawah Putih", "coordinates": [-7.1663, 107.4027], "opening_hours": "07:00", "closing_hours": "17:00", "duration": 3},
+        {"name": "Floating Market Lembang", "coordinates": [-6.8184, 107.6150], "opening_hours": "09:00", "closing_hours": "20:00", "duration": 3},
+        {"name": "Farmhouse Lembang", "coordinates": [-6.8186, 107.6166], "opening_hours": "09:00", "closing_hours": "21:00", "duration": 2},
+        {"name": "Dago Dreampark", "coordinates": [-6.8450, 107.6285], "opening_hours": "08:00", "closing_hours": "17:00", "duration": 3},
+        {"name": "Tangkuban Perahu", "coordinates": [-6.7597, 107.6098], "opening_hours": "07:00", "closing_hours": "17:00", "duration": 3},
+        {"name": "Saung Angklung Udjo", "coordinates": [-6.9033, 107.6647], "opening_hours": "09:00", "closing_hours": "17:00", "duration": 2},
+        {"name": "Paris Van Java Mall", "coordinates": [-6.8834, 107.5965], "opening_hours": "10:00", "closing_hours": "22:00", "duration": 3},
+        {"name": "Ciwidey Valley Resort", "coordinates": [-7.1644, 107.4043], "opening_hours": "07:00", "closing_hours": "17:00", "duration": 3}
+    ],
+    "num_clusters": 3,
+    "daily_start_time": "07:00",
+    "daily_end_time": "20:00"
+}
+
+
+
+Response
+
+{
+  "grouped_clusters": [
+    {
+      "cluster": 0,
+      "schedule": [
+        {
+          "name": "Kawah Putih",
+          "start_time": "07:00",
+          "end_time": "10:00"
+        },
+        {
+          "name": "Ciwidey Valley Resort",
+          "start_time": "10:00",
+          "end_time": "13:00"
+        },
+        {
+          "name": "Dago Dreampark",
+          "start_time": "13:00",
+          "end_time": "16:00"
+        }
+      ],
+      "unvisitable": []
+    },
+    {
+      "cluster": 1,
+      "schedule": [
+        {
+          "name": "Gedung Sate",
+          "start_time": "08:00",
+          "end_time": "10:00"
+        },
+        {
+          "name": "Trans Studio Bandung",
+          "start_time": "10:00",
+          "end_time": "14:00"
+        },
+        {
+          "name": "Saung Angklung Udjo",
+          "start_time": "14:00",
+          "end_time": "16:00"
+        },
+        {
+          "name": "Paris Van Java Mall",
+          "start_time": "16:00",
+          "end_time": "19:00"
+        }
+      ],
+      "unvisitable": []
+    },
+    {
+      "cluster": 2,
+      "schedule": [
+        {
+          "name": "Tangkuban Perahu",
+          "start_time": "07:00",
+          "end_time": "10:00"
+        },
+        {
+          "name": "Floating Market Lembang",
+          "start_time": "10:00",
+          "end_time": "13:00"
+        },
+        {
+          "name": "Farmhouse Lembang",
+          "start_time": "13:00",
+          "end_time": "15:00"
+        }
+      ],
+      "unvisitable": [
+        {
+          "name": "Dago Dreampark",
+          "coordinates": [
+            -6.845,
+            107.6285
+          ],
+          "opening_hours": "08:00",
+          "closing_hours": "17:00",
+          "duration": 3
+        }
+      ]
+    }
+  ],
+  "final_unvisitable": [],
+  "metrics": {
+    "silhouette_score": 0.5626915474015457,
+    "cluster_balance_score": 0.26666666666666666
+  },
+  "visualization": {
+    "cluster_plot_path": "static/cluster_plot.png",
+    "routing_plot_path": "static/routing_plot.png"
+  }
+}
