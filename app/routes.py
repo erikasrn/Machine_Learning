@@ -62,7 +62,7 @@ def cluster_data(data: ClusteringInput):
         #     "intra_cluster_distance": None,
         # }
     else:
-        # Perform parallel clustering to find the best cluster configuration
+        # Perform parallel clustering to find the best cluster
         best_clusters, best_labels, best_centroids, best_metrics = parallel_find_best_clusters(
             normalized_data, locations, num_clusters, num_iterations=10 
             # 10 is over, enough, or under?
@@ -85,7 +85,7 @@ def cluster_data(data: ClusteringInput):
         loc for cluster in grouped_clusters.values() for loc in cluster["unvisitable"]
     ]
 
-    # Attempt to reschedule unvisitable locations
+    # Attempt to reschedule unvisitable locations (last chance)
     adjusted_result = handle_unvisitable(unvisitable_locations, grouped_clusters, daily_start, daily_end)
     grouped_clusters = adjusted_result["clusters"]
     final_unvisitable = adjusted_result["unvisitable"]
@@ -108,7 +108,7 @@ def cluster_data(data: ClusteringInput):
     #     table_path = generate_schedule_table(schedule_table, cluster_id)
     #     cluster_tables[cluster_id] = table_path
 
-    # Visualize the routing based on the scheduled clusters
+    # Visualize routing based on the scheduled clusters
     # routing_plot_path = "static/routing_plot.png"
     # visualize_routing(
     #     grouped_clusters=grouped_clusters,
@@ -116,7 +116,7 @@ def cluster_data(data: ClusteringInput):
     #     output_path=routing_plot_path
     # )
 
-    # Compile the final response
+    # Compile final response
     response = {
         "grouped_clusters": [
             {
@@ -151,9 +151,9 @@ def parallel_find_best_clusters(normalized_data, locations, num_clusters, num_it
     """
     Perform K-means clustering in parallel and prioritize balanced clusters.
 
-    This function executes multiple K-means clustering iterations concurrently using parallel processing.
-    It evaluates each clustering configuration based on a composite score that considers the silhouette
-    score and cluster balance. The best clustering configuration is selected based on the highest composite score.
+    - Executes multiple K-means clustering iterations concurrently using parallel processing.
+    - Evaluates each clustering based on a composite score that considers the silhouette
+    score and cluster balance. The best clustering = highest composite score.
 
     Parameters:
         normalized_data (numpy.ndarray): Normalized dataset with rows representing data points.
@@ -214,16 +214,11 @@ def parallel_find_best_clusters(normalized_data, locations, num_clusters, num_it
 def compute_cluster_balance_score(labels, num_clusters):
     """
     Compute a score for cluster balance based on the variance of cluster sizes.
+    Explanation: 
+        - Balanced clustering has clusters with similar sizes = lower variance.
+        - Balance score normalized by the mean cluster size for comparability.
 
-    A balanced clustering configuration has clusters with similar sizes, resulting in lower variance.
-    The balance score is normalized by the mean cluster size for comparability.
-
-    Parameters:
-        labels (numpy.ndarray): Cluster labels assigned to each data point.
-        num_clusters (int): The total number of clusters.
-
-    Returns:
-        float: Normalized variance of cluster sizes, where lower values indicate better balance.
+    Returns float of normalized variance of cluster sizes (lower values indicate better balance)
     """
     cluster_counts = [np.sum(labels == i) for i in range(num_clusters)]
     balance_score = np.var(cluster_counts) / np.mean(cluster_counts)  # Normalize by mean
