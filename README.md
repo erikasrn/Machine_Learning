@@ -248,7 +248,7 @@ Use this example JSON to test the `/cluster/` endpoint:
 
 # Bonus (Optional)
 
-**Uncomment** the visualization and response in routes.py to get a better understanding of the clustering and the routing (scheduling) response (or you could check out the static folder)
+**Uncomment** the visualization and response in routes.py to gain a better understanding of the clustering and the routing (scheduling) response (or you could check out the static folder)
 
 <img src="https://github.com/Gumm11/Multi-Day-Cluster/blob/main/static/cluster_plot.png" width="600" />
 <img src="https://github.com/Gumm11/Multi-Day-Cluster/blob/main/static/routing_plot.png" width="600" />
