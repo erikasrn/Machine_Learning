@@ -32,8 +32,8 @@ Example of setting up a virtual environment using **Conda** to manage dependenci
 1. Clone the repository:
 
    ```bash
-   git clone https://github.com/Gumm11/Multi-Day-Cluster.git
-   cd Multi-Day-Cluster
+   git clone https://github.com/Day-Trips-Optimization/Machine_Learning.git
+   cd Machine_Learning
    ```
 
 2. Create a new Conda environment:
