@@ -253,3 +253,5 @@ Use this example JSON to test the `/cluster/` endpoint:
 <img src="https://github.com/Gumm11/Multi-Day-Cluster/blob/main/static/cluster_plot.png" width="600" />
 <img src="https://github.com/Gumm11/Multi-Day-Cluster/blob/main/static/routing_plot.png" width="600" />
 <img src="https://github.com/Gumm11/Multi-Day-Cluster/blob/main/static/schedule_table_cluster_0.png" width="600" />
+<img src="https://github.com/Gumm11/Multi-Day-Cluster/blob/main/static/schedule_table_cluster_1.png" width="600" />
+<img src="https://github.com/Gumm11/Multi-Day-Cluster/blob/main/static/schedule_table_cluster_2.png" width="600" />
