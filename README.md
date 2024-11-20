@@ -19,7 +19,6 @@ This repository contains a FastAPI-based project that performs clustering using 
 
 - **Clustering with TensorFlow**: Custom K-means implementation with soft penalties for outliers.
 - **Location Scheduling**: Allocates time slots for visiting clustered locations within business hours.
-- **Evaluation Metrics**: Computes silhouette score, intra-cluster distance, and other metrics to assess cluster quality.
 
 ## Prerequisites
 
