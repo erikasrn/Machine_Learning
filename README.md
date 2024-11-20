@@ -56,7 +56,7 @@ To start the FastAPI application, use **Uvicorn**, an ASGI server that runs the 
 1. Run the FastAPI server:
 
    ```bash
-   uvicorn main:app --reload
+   uvicorn app.main:app --reload
    ```
 
 2. Once the server is running, navigate to `http://127.0.0.1:8000/docs` to view the interactive API documentation (Swagger UI).
