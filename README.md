@@ -68,12 +68,12 @@ The main structure of this project is:
 ```
 fastapi-clustering/
 ├── app/
-│   ├── clustering.py           # TensorFlow K-means clustering implementation
+│   ├── clustering.py           # Customized TensorFlow K-means clustering
 │   ├── evaluation.py           # Evaluation metrics (silhouette score, etc.)
 │   ├── main.py                 # FastAPI initialization
-│   ├── models.py               # Pydantic models for data validation
-│   ├── routes.py               # API endpoints for clustering
-│   ├── scheduling.py           # Scheduling logic for clustered locations
+│   ├── models.py               # Pydantic models
+│   ├── routes.py               # API endpoints for clustering and stuff
+│   ├── scheduling.py           # Scheduling logic for each clustered locations
 │   ├── utils.py                # Utility functions for normalization and visualization
 ├── requirements.txt            # Dependencies
 ```
